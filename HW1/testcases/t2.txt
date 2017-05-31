@@ -1,0 +1,8 @@
+UCS
+70
+StartNode123
+GoalNode123
+StartNode123: A-20, B-30
+A: StartNode123-20, GoalNode123-60
+B: StartNode123-30, GoalNode123-30
+GoalNode123: A-60, B-30
