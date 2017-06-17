@@ -4,8 +4,8 @@ WA: R-1, SA: G-2
 R: 10, G: 5, B: 0
 R: 0, G: 2, B: 8
 SA: WA, NT, Q, NSW, V
-NT: WA, SA, Q 
-NSW: Q, V, SA 
+NT: WA, SA, Q
+NSW: Q, V, SA
 WA: SA, NT
 Q: NT, SA, NSW
 V: SA, NSW
