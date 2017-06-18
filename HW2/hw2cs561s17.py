@@ -94,7 +94,8 @@ def str_to_ascii(word):
 
 
 def log(state, color, depth, v, alpha, beta):
-	print ", ".join([state, color, str(depth), str(v), str(alpha), str(beta)])
+	fo.write(", ".join([state, color, str(depth), str(v), str(alpha), str(beta)]))
+	fo.write("\n")
 
 
 def find_actions_for_state(state, current_assignments):
@@ -192,7 +193,7 @@ def min_value(current_assignments, alpha, beta, value_action_mapping, depth, pre
 def alpha_beta_search(current_assignments, previous_action):  # return next assignment
 	value_action_mapping = {}
 	v = max_value(current_assignments, MININT, MAXINT, value_action_mapping, 0, previous_action)
-	print ", ".join([value_action_mapping[v].state, value_action_mapping[v].color, str(v)])
+	fo.write(", ".join([value_action_mapping[v].state, value_action_mapping[v].color, str(v)]))
 
 
 assignments = {}  # state->Assignment
@@ -212,5 +213,7 @@ max_depth = int(lines.pop(0).strip())
 player1_preferences = dict((item.split(": ")[0], int(item.split(": ")[1])) for item in lines.pop(0).strip().split(", "))
 # color->score
 player2_preferences = dict((item.split(": ")[0], int(item.split(": ")[1])) for item in lines.pop(0).strip().split(", "))
-state_graph = dict((item.split(": ")[0], list(item.split(": ")[1].split(", "))) for item in lines)  # state->Set(cities)
+state_graph = dict((item.strip().split(": ")[0], list(item.strip().split(": ")[1].split(", "))) for item in lines)  # state->Set(cities)
+fo = open("output.txt", "wb")
 alpha_beta_search(assignments, Action(initialAssignment2[0], initialAssignment2[1].split("-")[0]))
+fo.close()
