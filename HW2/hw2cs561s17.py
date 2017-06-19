@@ -89,10 +89,6 @@ MAXINT = Maxint()
 MININT = Minint()
 
 
-def str_to_ascii(word):
-	return [ord(c) for c in word]
-
-
 def log(state, color, depth, v, alpha, beta):
 	fo.write(", ".join([state, color, str(depth), str(v), str(alpha), str(beta)]))
 	fo.write("\n")
